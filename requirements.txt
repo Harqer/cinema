@@ -1,0 +1,46 @@
+# Agentic Cinema — dependencies
+#
+# Install:
+#   pip install -r requirements.txt
+#
+# For Agent Engine deployment also run:
+#   pip install "google-cloud-aiplatform[agent_engines,adk]>=1.101.0"
+
+# ── Core Google AI stack ──────────────────────────────────────────────────────
+google-genai>=1.16.0
+google-cloud-aiplatform[agent_engines,adk]>=1.101.0
+
+# ── Dialogflow CX management ─────────────────────────────────────────────────
+google-cloud-dialogflow-cx>=1.35.0
+google-auth>=2.29.0
+requests>=2.31.0
+python-dotenv>=1.0.0        # optional: loads .env automatically in CLI
+
+# ── Google Cloud platform ─────────────────────────────────────────────────────
+google-cloud-secret-manager>=2.20.0
+
+# ── Data & schema ─────────────────────────────────────────────────────────────
+pydantic>=2.7.0
+numpy>=1.26.0
+
+# ── PDF ingestion ─────────────────────────────────────────────────────────────
+pypdf>=4.0.0
+
+# ── LangGraph workflows + memory ─────────────────────────────────────────────
+langgraph>=0.2.0
+langchain-google-vertexai>=1.0.0
+
+# Short-term memory: PostgreSQL checkpointer (production)
+langgraph-checkpoint-postgres>=2.0.0
+# Short-term memory: Redis checkpointer (alternative)
+# langgraph-checkpoint-redis>=0.1.0
+
+# Long-term memory: PostgreSQL store (production)
+# (included in langgraph-checkpoint-postgres)
+
+# Required by psycopg-based checkpointer/store
+psycopg[binary,pool]>=3.2.0
+
+# ── (Optional) LangChain BigQuery vector store ───────────────────────────────
+# Uncomment for vector RAG:
+# langchain-google-community[bigquery]>=0.2.0
